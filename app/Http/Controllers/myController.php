@@ -2,20 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use Illuminate\Http\Request;
+use App\MyClass\MyClassB;
+use App\Services\DateCheck;
 
 class myController extends Controller
 {
-    private $a;
-
-    public function __construct(User $a)
-    {
-        $this->a = $a;
+    private $obj;
+    private $date;
+    public function __construct(MyClassB $classB, DateCheck $date) {
+        $this->obj = $classB;
+        $this->date = $date;
     }
 
-    public function show($name = 'admin')
-    {
-        return view('my_view', ['name' => $name]);
+    public function index() {
+        echo $this->obj->myMethod();
+        $this->show();
     }
+
+    private function show()
+    {
+        dump($this->date->isValid("13/12/2019"));
+    }
+
 }

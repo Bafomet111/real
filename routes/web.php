@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello/{name?}', 'myController@show');
+Route::get('/hello/{name?}', 'myController@index');
 
