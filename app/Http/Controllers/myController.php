@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Comment;
+use App\Models\Post;
 use App\MyClass\MyClassB;
 use App\Services\DateCheck;
 
@@ -21,7 +24,10 @@ class myController extends Controller
 
     private function show()
     {
-        dump($this->date->isValid("13/12/2019"));
+        $com = new Comment(["body" => "A new comment"]);
+        $post = Post::find(1);
+//        dump($post->title);
+        $post->comments()->save($com);
     }
 
 }
