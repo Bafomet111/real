@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
+    /** Отказ от обработки полей по умолчанию
+     * @var bool
+     */
+    public $timestamps = false;
+
     /**
      * Получить все комментарии статьи.
      */
