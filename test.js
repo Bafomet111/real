@@ -1,2 +1,2 @@
-alert(document.cookie)
+alert(100)
 
